@@ -1,0 +1,31 @@
+[
+	uuid(bee393b2-53ad-11ec-bf63-0242ac130002),
+	version(1.0),
+	implicit_handle(handle_t handle_)
+]
+interface solution
+{
+	int user_login(
+		[in, size_is(32)]unsigned char* login,
+		[in, size_is(32)]unsigned char* password
+		);
+
+	void remove_file(
+		[in, string] const unsigned char* filename
+		);
+
+	unsigned long server_to_host(
+		[in, string] const unsigned char* iFilename,
+		[in, out, size_is(bfSize)] unsigned char* buffer,
+		[in] unsigned long bfSize
+		);
+
+	int host_to_server(
+		[in, string] const unsigned char* iFilename,
+		[in, out, size_is(bfSize)] unsigned char* buffer,
+		[in] unsigned long bfSize,
+		[in] unsigned long start
+		);
+
+	void user_logout();
+}
